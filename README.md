@@ -26,3 +26,16 @@ Install into Docker:
 ```sh
 docker load --input "$(nix-build ./release.nix --attr docker)"
 ```
+
+## Running
+
+```sh
+http-demo 55555
+curl http://localhost:55555/
+```
+
+Or after you have tagged your container image with `latest`:
+
+```sh
+docker run -it --rm --network=host http-demo:latest 55555
+```

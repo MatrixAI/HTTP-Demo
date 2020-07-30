@@ -5,9 +5,9 @@ rec {
   application = callPackage ./default.nix {};
   docker = dockerTools.buildImage {
     name = application.name;
-    contents = [ application ];
+    contents = [ application bash ];
     config = {
-      Cmd = [ "/bin/http-demo" ];
+      Entrypoint = [ "/bin/http-demo" ];
     };
   };
 }
