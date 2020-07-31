@@ -39,3 +39,9 @@ Or after you have tagged your container image with `latest`:
 ```sh
 docker run -it --rm --network=host http-demo:latest 55555
 ```
+
+Or with port mapping:
+
+```sh
+docker run -it --rm -p 55555:55555 http-demo:INSERTYOURTAG 55555
+```
