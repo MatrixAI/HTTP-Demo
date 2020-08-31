@@ -1,0 +1,15 @@
+stages:
+  - check
+  - build
+
+image: registry.gitlab.com/matrixai/engineering/maintenance/gitlab-runner
+
+nix-dry:
+  stage: check
+  script:
+    - nix-build -v -v --dry-run ./release.nix
+
+nix:
+  stage: build
+  script:
+    - nix-build ./release.nix
